@@ -30,6 +30,8 @@ input {
 }
 
 .more {
+  display: block;
+  margin: auto;
   width: 100px;
   height: 40px;
   color: #fff;
@@ -37,6 +39,7 @@ input {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  margin-bottom: 100px;
 }
 
 .more:hover {

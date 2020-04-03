@@ -15,6 +15,9 @@ renderInputForm();
 
 const input = document.querySelector('input');
 const form = document.querySelector('#search-form');
+const gallery = document.createElement('ul');
+root.append(gallery);
+gallery.classList.add('gallery');
 
 function moreBtnCreate() {
   if (!document.querySelector('.more')) {
@@ -26,9 +29,6 @@ function moreBtnCreate() {
 }
 
 function renderImages(e) {
-  const gallery = document.createElement('ul');
-  root.append(gallery);
-  gallery.classList.add('gallery');
   e.preventDefault();
   gallery.innerHTML = '';
   const query = input.value;
@@ -42,7 +42,6 @@ function renderImages(e) {
 
 function renderMoreImages() {
   page += 1;
-  const gallery = document.querySelector('.gallery');
   const query = input.value;
   fetchFunc(query, page, key).then(hits => {
     const markup = card(hits);
