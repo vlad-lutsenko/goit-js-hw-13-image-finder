@@ -3,10 +3,11 @@ import card from './tools/imageCard.hbs';
 import './styles.css';
 
 let page = 1;
+let query;
 
-const root = document.querySelector('.root');
 const key = '15871594-e6aabc3dbb9db4d877f262370';
 
+const root = document.querySelector('.root');
 const input = document.querySelector('input');
 const form = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
@@ -21,11 +22,9 @@ function moreBtnCreate() {
 }
 
 function renderImages(e) {
-  localStorage.removeItem('query');
   e.preventDefault();
   gallery.innerHTML = '';
-  const query = input.value;
-  localStorage.setItem('query', query);
+  query = input.value;
   fetchFunc(query, page, key).then(hits => {
     const markup = card(hits);
     gallery.innerHTML = markup;
@@ -37,7 +36,6 @@ function renderImages(e) {
 
 function renderMoreImages() {
   page += 1;
-  const query = localStorage.getItem('query');
   fetchFunc(query, page, key).then(hits => {
     const markup = card(hits);
     gallery.insertAdjacentHTML('beforeend', markup);
