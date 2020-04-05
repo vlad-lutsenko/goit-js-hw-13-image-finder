@@ -11,9 +11,14 @@ input {
   padding: 10px;
 }
 
+img {
+  width: 300px;
+  height: auto;
+}
+
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   list-style: none;
 }

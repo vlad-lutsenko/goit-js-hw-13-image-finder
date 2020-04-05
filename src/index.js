@@ -39,10 +39,12 @@ function renderMoreImages() {
   fetchFunc(query, page, key).then(hits => {
     const markup = card(hits);
     gallery.insertAdjacentHTML('beforeend', markup);
-    window.scrollBy({
-      top: document.documentElement.clientHeight,
-      behavior: 'smooth',
-    });
+    setTimeout(() => {
+      window.scrollBy({
+        top: document.documentElement.clientHeight,
+        behavior: 'smooth',
+      });
+    }, 1000);
   });
 }
 
